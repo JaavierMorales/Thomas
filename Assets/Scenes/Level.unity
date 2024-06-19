@@ -468,8 +468,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279308785
-  m_fontColor: {r: 0.9433962, g: 0.06674972, b: 0.06674972, a: 1}
+    rgba: 4279177203
+  m_fontColor: {r: 0.9528302, g: 0.05842829, b: 0.05842829, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -804,6 +804,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.84374994}
   m_EdgeRadius: 0
+--- !u!1 &346919224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 346919225}
+  m_Layer: 0
+  m_Name: Respawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &346919225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346919224}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.8588867, y: -3.5820541, z: -0.2849665}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &482149734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,7 +1303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   deathThreshold: 1
-  respawnPoint: {fileID: 0}
+  respawnPoint: {fileID: 346919225}
 --- !u!1 &565363853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,3 +2651,4 @@ SceneRoots:
   - {fileID: 1035410705}
   - {fileID: 1075041272}
   - {fileID: 1751772419}
+  - {fileID: 346919225}

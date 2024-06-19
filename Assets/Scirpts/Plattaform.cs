@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Plattaform : MonoBehaviour
 {
-
     public Transform platform, startPoint, endPoint;
     public float speed = 0.5f;
     public int direction = 1;
+
     private void Start()
     {
-
     }
+
     public void Update()
     {
         Vector2 target = currentMovementTarget();
@@ -23,6 +22,7 @@ public class Plattaform : MonoBehaviour
             direction *= -1;
         }
     }
+
     Vector2 currentMovementTarget()
     {
         if (direction == 1)
@@ -34,6 +34,7 @@ public class Plattaform : MonoBehaviour
             return endPoint.position;
         }
     }
+
     private void OnDrawGizmos()
     {
         if (platform != null && startPoint != null && endPoint != null)
@@ -42,13 +43,15 @@ public class Plattaform : MonoBehaviour
             Gizmos.DrawLine(platform.transform.position, endPoint.position);
         }
     }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-            {
-            other.transform.SetParent(null);
+        {
+            other.transform.SetParent(platform);
         }
     }
+
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -56,5 +59,4 @@ public class Plattaform : MonoBehaviour
             other.transform.SetParent(null);
         }
     }
-
 }
