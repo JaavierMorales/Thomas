@@ -40,7 +40,7 @@ public class PlayersSwap : MonoBehaviour
                 player1Active = false;
                 if (cameraFollow != null)
                 {
-                    cameraFollow.SwitchTarget(2);
+                    cameraFollow.SwitchTarget(1); // Cambiar a player2Controller
                 }
                 else
                 {
@@ -57,7 +57,7 @@ public class PlayersSwap : MonoBehaviour
                 player1Active = true;
                 if (cameraFollow != null)
                 {
-                    cameraFollow.SwitchTarget(1);
+                    cameraFollow.SwitchTarget(0); // Cambiar a playerController
                 }
                 else
                 {

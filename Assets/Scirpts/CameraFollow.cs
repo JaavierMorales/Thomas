@@ -1,50 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player1; // Asigna el primer jugador
-    public Transform player2; // Asigna el segundo jugador
+    public Transform[] playerTransforms; // Los jugadores que la cámara seguirá
+    public Vector3 offset; // La posición offset de la cámara respecto al jugador
 
-    private Transform currentTarget; // Almacena el objetivo actual
+    private int currentTargetIndex = 0;
 
     private void Start()
     {
-        // Asegúrate de que al menos uno de los jugadores esté asignado
-        if (player1 != null)
+        // Inicializar el objetivo actual
+        if (playerTransforms.Length > 0)
         {
-            currentTarget = player1;
-        }
-        else if (player2 != null)
-        {
-            currentTarget = player2;
-        }
-        else
-        {
-            Debug.LogError("No players assigned to CameraFollow script.");
+            currentTargetIndex = 0;
         }
     }
 
     private void LateUpdate()
     {
-        if (currentTarget != null)
+        if (playerTransforms.Length > 0)
         {
-            transform.position = new Vector3(currentTarget.position.x, currentTarget.position.y, transform.position.z);
+            // Mover la cámara al objetivo actual con el offset
+            transform.position = new Vector3(
+                playerTransforms[currentTargetIndex].position.x + offset.x,
+                playerTransforms[currentTargetIndex].position.y + offset.y,
+                transform.position.z
+            );
         }
     }
 
-    public void SwitchTarget(int playerNumber)
+    // Método para cambiar el objetivo de la cámara
+    public void SwitchTarget(int targetIndex)
     {
-        if (playerNumber == 1)
+        if (targetIndex >= 0 && targetIndex < playerTransforms.Length)
         {
-            currentTarget = player1;
-        }
-        else if (playerNumber == 2)
-        {
-            currentTarget = player2;
-        }
-        else
-        {
-            Debug.LogError("Invalid player number: " + playerNumber);
+            currentTargetIndex = targetIndex;
         }
     }
 }
